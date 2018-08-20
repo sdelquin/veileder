@@ -1,17 +1,23 @@
 import os
 import sys
+
 import config
-import elasticemail
 from utils import logger_setup
+from sgw.core import SendGrid
 
 logger = logger_setup(__file__)
 
 
 def notify():
-    elasticemail.send(
+    email = SendGrid(
+        config.SENDGRID_APIKEY,
+        config.SENDGRID_FROM_EMAIL,
+        config.SENDGRID_FROM_NAME
+    )
+    email.send(
         to=config.TO_EMAIL_ADDRESS,
-        subject="Supervisord is not running!",
-        body="Check supervisord! 👀"
+        subject='Supervisord is not running!',
+        msg='Check supervisord! 💪🏻'
     )
 
 

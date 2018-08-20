@@ -2,5 +2,4 @@
 # Master script.
 
 cd "$(dirname "$0")"
-source $HOME/.virtualenvs/veileder/bin/activate
-python main.py
+exec pipenv run python main.py

@@ -1,4 +1,4 @@
 *.pyc
 *.log
 *.pid
-config.py
+.env
